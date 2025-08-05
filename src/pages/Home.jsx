@@ -16,13 +16,26 @@ export default function Home() {
         </p>
         <div className="flex gap-4">
           <Link to="/register">
-            <Button size="lg">Get Started</Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="hover:bg-white hover:text-black transition-colors cursor-pointer"
+            >
+              Get Started
+            </Button>
           </Link>
+
           <Link to="/login">
-            <Button size="lg" variant="outline">
+            <Button
+              size="lg"
+              variant="outline"
+              className="hover:bg-white hover:text-black transition-colors cursor-pointer"
+            >
               Login
             </Button>
           </Link>
+
+
         </div>
       </section>
 

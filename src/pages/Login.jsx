@@ -38,9 +38,12 @@ export default function Login() {
                 className="bg-neutral-800 border-neutral-700 text-neutral-100 placeholder-neutral-500"
               />
             </div>
-            <Button className="w-full bg-white text-black hover:bg-neutral-200 mt-2">
-            Login
-          </Button>
+            <Button
+              className="w-full bg-white text-black hover:bg-neutral-200 transition-colors cursor-pointer mt-2"
+            >
+              Login
+            </Button>
+
           </form>
           <div className="text-center text-sm text-neutral-500 mt-2">
             Don&apos;t have an account?{" "}
