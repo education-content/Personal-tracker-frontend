@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,13 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -37,7 +44,7 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5001/auth/login",
+        "https://personal-tracker-backend-6v56.onrender.com/auth/login",
         { email, password }
       );
 
@@ -48,7 +55,7 @@ export default function Login() {
       toast.success("Login successful!");
 
       // ✅ Navigate to dashboard/home
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed.");
     } finally {

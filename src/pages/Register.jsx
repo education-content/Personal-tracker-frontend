@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,6 +16,15 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
 
   const [loading, setLoading] = useState(false);
 
