@@ -11,6 +11,8 @@ import ScholarshipsChart from "./ScholarshipsChart";
 import CategoriesChart from "./CategoriesChart";
 import api from "../../api";
 
+
+
 export default function DashboardContent({ user }) {
   const [summary, setSummary] = useState(null);
   const [monthlyStats, setMonthlyStats] = useState([]);
@@ -68,17 +70,17 @@ export default function DashboardContent({ user }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard
             title="Total Balance"
-            value={`₹${summary.balance ?? 0}`}
+            value={`₹${summary.totalBalance ?? 0}`}
             color="text-green-400"
           />
           <StatCard
             title="Total Received"
-            value={`₹${summary.received ?? 0}`}
+            value={`₹${summary.totalReceived ?? 0}`}
             color="text-blue-400"
           />
           <StatCard
             title="Total Spent"
-            value={`₹${summary.spent ?? 0}`}
+            value={`₹${summary.totalSpent ?? 0}`}
             color="text-red-400"
           />
           <StatCard
@@ -92,15 +94,18 @@ export default function DashboardContent({ user }) {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="col-span-2">
-          {monthlyStats.length > 0 ? (
-            <MonthlyChart data={monthlyStats} />
-          ) : (
-            <Card className="text-white p-6 bg-neutral-900 border-neutral-800">
-              <p className="text-neutral-400">No monthly stats available.</p>
-            </Card>
-          )}
-        </div>
+          <div className="col-span-2">
+            {monthlyStats.length > 0 ? (
+              <div className="w-full h-[100px]"> {/* Adjust height as needed */}
+                <MonthlyChart data={monthlyStats} />
+              </div>
+            ) : (
+              <Card className="text-white p-6 bg-neutral-900 border-neutral-800">
+                <p className="text-neutral-400">No monthly stats available.</p>
+              </Card>
+            )}
+          </div>
+
 
         <div className="space-y-6">
           {scholarships.length > 0 ? (

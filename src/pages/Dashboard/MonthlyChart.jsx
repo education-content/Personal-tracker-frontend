@@ -1,5 +1,6 @@
 // components/Dashboard/MonthlyChart.jsx
 import React from "react";
+import { format, parse } from "date-fns";
 import {
   ResponsiveContainer,
   BarChart,
@@ -18,12 +19,19 @@ export default function MonthlyChart({ data }) {
       <CardHeader>
         <CardTitle>Monthly Spent vs Received</CardTitle>
       </CardHeader>
-      <CardContent className="h-[200px] p-4">
+      <CardContent className="h-[300px] p-4">
 
-        <ResponsiveContainer width="100%" height="250%">
+        <ResponsiveContainer width="100%" height="110%">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#555" />
-            <XAxis dataKey="month" stroke="#ccc" />
+            <XAxis
+              dataKey="month"
+              tickFormatter={(month) => {
+                const parsedDate = parse(month, "yyyy-MM", new Date());
+                return format(parsedDate, "MMM"); // Shows "Aug", "Sep", etc.
+              }}
+            />
+
             <YAxis stroke="#ccc" />
             <Tooltip />
             <Legend />

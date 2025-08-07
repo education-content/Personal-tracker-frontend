@@ -24,7 +24,7 @@ import {
 export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialog }) {
   return (
     <aside className="w-full md:w-64 bg-neutral-900 border-r border-neutral-800 p-6">
-      <h2 className="text-2xl font-semibold mb-8 text-white">Dashboard</h2>
+      <Link to='/dashboard'><h2 className="text-2xl font-semibold mb-8 text-white">Dashboard</h2></Link>
       <nav className="space-y-4">
         <Link to="/dashboard/profile">
           <Button
@@ -54,6 +54,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           </Button>
         </Link>
 
+        <Link to="/dashboard/transaction">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
@@ -61,6 +62,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           <List className="w-4 h-4 mr-2" />
           Transactions
         </Button>
+        </Link>
 
         <Button
           variant="ghost"
@@ -78,14 +80,17 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           Shared Expenses
         </Button>
 
+        <Link to="/dashboard/friends">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
         >
           <Folder className="w-4 h-4 mr-2" />
-          Categories
+          Friends
         </Button>
+        </Link>
 
+        <Link to="/dashboard/settings">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
@@ -93,6 +98,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           <Settings className="w-4 h-4 mr-2" />
           Settings
         </Button>
+        </Link>
       </nav>
 
       <div className="mt-10">
