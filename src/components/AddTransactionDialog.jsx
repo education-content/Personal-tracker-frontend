@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -58,7 +58,7 @@ export default function AddTransactionDialog({ onSuccess, categories }) {
   const handleAddTransaction = async () => {
     try {
       if (!form.amount || !form.category_name.trim()) {
-        alert("Please fill out amount and category");
+        toast.error("Please fill out amount and category");
         return;
       }
 
@@ -93,11 +93,19 @@ export default function AddTransactionDialog({ onSuccess, categories }) {
       });
 
       onSuccess();
-      toast.success("Transaction Added successfully!");
+      toast.success("Transaction added successfully!");
     } catch (err) {
       console.error("Error adding transaction", err);
+
+      const message =
+        err?.response?.data?.error ||
+        err?.response?.data?.message ||
+        "Something went wrong while adding transaction.";
+
+      toast.error(message);
     }
   };
+
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

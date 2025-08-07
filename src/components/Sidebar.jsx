@@ -36,6 +36,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           </Button>
         </Link>
 
+        <Link to ="/dashboard/analytics">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
@@ -43,6 +44,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           <BarChart className="w-4 h-4 mr-2" />
           Analytics
         </Button>
+        </Link>
 
         <Link to="/dashboard/bank-details">
           <Button
@@ -63,7 +65,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           Transactions
         </Button>
         </Link>
-
+        <Link to="settlements">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
@@ -71,7 +73,9 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           <Handshake className="w-4 h-4 mr-2" />
           Settlements
         </Button>
+        </Link>
 
+        <Link to="/dashboard/shared-expenses">
         <Button
           variant="ghost"
           className="w-full justify-start text-neutral-300 hover:text-white cursor-pointer"
@@ -79,6 +83,7 @@ export default function Sidebar({ onLogout, showLogoutDialog, setShowLogoutDialo
           <Activity className="w-4 h-4 mr-2" />
           Shared Expenses
         </Button>
+        </Link>
 
         <Link to="/dashboard/friends">
         <Button

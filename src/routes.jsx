@@ -11,6 +11,9 @@ import PrivateRoute from "./components/PrivateRoutes";
 import AuthRedirect from "./components/AuthRedirect";
 import TransactionsPage from "./pages/TransactionPage";
 import FriendsPage from "./pages/Friends";
+import Analytics from "./pages/Analytics";
+import SharedExpenses from "./pages/SharedExpenses";
+import SettlementsPage from "./pages/Settlements";
 
 export default function AppRoutes() {
   return (
@@ -34,7 +37,10 @@ export default function AppRoutes() {
         <Route path="settings" element={<SettingsPage />} />
         <Route path="transaction" element={<TransactionsPage />} />
         <Route path="bank-details" element={<BankDetailsPage />} />
-         <Route path="friends" element={<FriendsPage />} />
+        <Route path="friends" element={<FriendsPage />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="shared-expenses" element={<SharedExpenses />} />
+        <Route path="settlements" element={<SettlementsPage />} />
         {/* <Route path="settings" element={<SettingsPage />} /> */}
       </Route>
     </Routes>
