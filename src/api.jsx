@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5001/", // change to your backend URL
+  baseURL: "https://personal-tracker-backend-6v56.onrender.com/", // change to your backend URL
 });
 
 // Automatically attach token
